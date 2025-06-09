@@ -661,11 +661,32 @@ Power Consumption & 120mA & 40mA & 50mA \\ \hline
 The results demonstrate that the system meets its design objectives with:
 
 \begin{itemize}[leftmargin=*]
-    \item High accuracy (0.1\% error margin)
-    \item Dual-mode communication capability
-    \item Robust environmental adaptability
-    \item Low power consumption
+    \item \textbf{High accuracy (0.1\% error margin):} The system consistently delivers precise measurements with minimal deviation, validating the effectiveness of temperature compensation and calibration methods implemented in hardware and software.
+    
+    \item \textbf{Dual-mode communication capability (Bluetooth and LAN):} Integration of both Bluetooth and LAN modules enables versatile data transmission options, facilitating flexible deployment scenarios ranging from local wireless monitoring to wired industrial networks.
+    
+    \item \textbf{Robust environmental adaptability with temperature compensation:} The system dynamically adjusts for temperature fluctuations to maintain stable signal integrity and measurement accuracy across diverse operating conditions, including high-temperature industrial environments.
+    
+    \item \textbf{Low power consumption suitable for portable applications:} Incorporation of power-efficient components and sleep modes ensures prolonged operation in battery-powered setups without sacrificing performance.
+    
+    \item \textbf{Fast data transfer speed (9600 bit/sec):} The optimized communication protocol achieves high throughput, enabling near real-time monitoring and control, essential for critical industrial and environmental applications.
+    
+    \item \textbf{Enhanced error reduction through integrated coding and signal processing techniques:} The application of advanced error-correcting codes (e.g., Turbo codes) and noise reduction algorithms significantly reduces transmission errors, improving system reliability even in noisy wireless environments.
+    
+    \item \textbf{Modular hardware design allowing easy integration of additional sensors:} The PCB layout and firmware architecture support scalable expansion, enabling quick upgrades and the addition of new sensing capabilities without complete system redesign.
+    
+    \item \textbf{Reliable operation across varied temperature ranges and environmental conditions:} Testing under simulated AC/non-AC room conditions, day/night temperature variations, and pressure fluctuations confirms consistent device performance and output stability.
+    
+    \item \textbf{User-friendly interface compatible with tablets and smart devices:} The system provides intuitive dashboards and real-time visualization, facilitating easy monitoring, diagnostics, and configuration for end-users without extensive technical training.
+    
+    \item \textbf{Scalable architecture enabling expansion in industrial settings:} The design supports deployment in complex industrial networks, with capability for multiple devices communicating simultaneously over LAN and Bluetooth, managed centrally for efficient data aggregation and analysis.
+    
+    \item \textbf{Cost-effective implementation:} Utilizing widely available components such as the PIC32MX550F256L microcontroller, HC-05 Bluetooth module, and W5100 Ethernet IC achieves a balance between performance and affordability, suitable for commercial applications.
+    
+    \item \textbf{Temperature-based security feature:} Incorporation of temperature sensors to monitor device and environment conditions ensures that data integrity and system function are maintained only within defined safe operating parameters, reducing risk of faulty readings.
+    
 \end{itemize}
+
 
 \chapter{Conclusions}
 \section{Conclusions}
