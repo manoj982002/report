@@ -1,4 +1,5 @@
 \documentclass[12pt]{report}
+
 \usepackage{times} % or \usepackage{mathptmx} for better math font support
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{graphicx}
@@ -6,14 +7,14 @@
 \usepackage{everypage}
 \usepackage{setspace}
 \usepackage{float}
+\usepackage{tabularx}
+\usepackage{adjustbox}
 \usepackage{caption}
 \usepackage{placeins}
 \usepackage{titlesec}
-\usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{amsmath}
-\usepackage{lipsum}
 \usepackage[utf8]{inputenc}
 \usepackage{tocloft}
 \usepackage{chngcntr}
@@ -22,19 +23,18 @@
 \usepackage{etoolbox}
 \usepackage{array}
 \usepackage{ragged2e}
-\usepackage{lscape}        % for landscape tables if needed
-\usepackage{adjustbox}     % to auto-fit wide tables
+\usepackage{lscape}
+\usepackage{adjustbox}
 
-
-% Improved table column formatting
+% Fix new column types (closed braces added)
 \newcolumntype{L}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
 \newcolumntype{R}[1]{>{\RaggedLeft\hspace{0pt}}p{#1}}
 \newcolumntype{C}[1]{>{\Centering\hspace{0pt}}p{#1}}
 
 % Formatting for chapter titles
 \titleformat{\chapter}[display]
-{\normalfont\bfseries\centering}
-{\chaptertitlename\ \thechapter}{12pt}{\Huge}
+  {\normalfont\bfseries\centering}
+  {\chaptertitlename\ \thechapter}{12pt}{\Huge}
 
 % Table of contents formatting
 \renewcommand{\cftchapfont}{\normalfont\bfseries}
@@ -46,17 +46,16 @@
 \renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\listtablename}{List of Tables}
 
-
 % Section numbering depth
 \setcounter{secnumdepth}{3}
 
 % Header styles
 \titleformat{\section}
-{\normalfont\bfseries\large}{\thesection}{1em}{}
+  {\normalfont\bfseries\large}{\thesection}{1em}{}
 \titleformat{\subsection}
-{\normalfont\bfseries}{\thesubsection}{1em}{}
+  {\normalfont\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}
-{\normalfont\itshape}{\thesubsubsection}{1em}{}
+  {\normalfont\itshape}{\thesubsubsection}{1em}{}
 
 % Line spacing
 \onehalfspacing
@@ -72,6 +71,14 @@
 \newcommand{\department}{Department of Electronics \& Telecommunication Engineering}
 \newcommand{\location}{Vadgaon (BK), Pune - 411041}
 
+% Add black border on every page
+\AddEverypageHook{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[black, line width=1pt]
+      ($(current page.north west) + (1mm,-1mm)$) rectangle
+      ($(current page.south east) + (-1mm,1mm)$);
+  \end{tikzpicture}%
+}
 
 \begin{document}
 
@@ -107,9 +114,9 @@
     By\\
     \vspace{0.5cm}
     \begin{tabular}{@{}l l@{}}
-        MANOJ JANGID & Exam No. B1902303097 \\
-        SANKET BABAR & Exam No. B1902303020 \\
-        SUJIT HIRE & Exam No. B1902303086 \\
+        MANOJ JANGID & Exam No. B400230575 \\
+        SANKET BABAR & Exam No. B400230498 \\
+        SUJIT HIRE & Exam No. B400230565
     \end{tabular}
     \vspace{1.5cm}
     
@@ -133,6 +140,11 @@
 %\includegraphics[width=0.3\textwidth]{media/image2.jpeg}\\
 %\vspace{1cm}
 
+% Certificate Page
+\newpage
+\thispagestyle{empty}
+\centering
+
 \textbf{\Large CERTIFICATE}\\
 \vspace{1cm}
 
@@ -150,17 +162,23 @@ SUJIT HIRE\\
 \vspace{1cm}
 
 Have successfully completed their Project under the supervision of \textbf{Dr. S. A. Shirsat} for the partial fulfillment of Bachelor of Engineering in \textbf{Electronics and Telecommunication} of Savitribai Phule Pune University. This work has not been submitted elsewhere for any degree.\\
-\vspace{1.5cm}
-\vfill
+
+\vspace*{\fill}
 \begin{center}
-\begin{tabular}{@{}ccc@{}}
-    \textbf{Dr. S. A. Shirsat} & \textbf{Dr. M. B. Mali} & \textbf{Dr. S. D. Lokhande} \\[0.3cm]
-    Guide & HOD - Dept. of E\&TC & Principal \\
+\begin{tabular}{@{}p{0.3\linewidth}@{\hspace{1.5cm}}p{0.3\linewidth}@{\hspace{1.5cm}}p{0.3\linewidth}@{}}
+    \centering \textbf{Dr. S. A. Shirsat} & 
+    \centering \textbf{Dr. M. B. Mali} & 
+    \centering \textbf{Dr. S. D. Lokhande} \\[0.4cm]
+    
+    \multicolumn{1}{c}{Guide} & 
+    \multicolumn{1}{c}{HOD – Dept. of E\&TC} & 
+    \multicolumn{1}{c}{Principal, SCOE} \\
 \end{tabular}
 \end{center}
-\vspace{1cm} % Optional space below the table at bottom of page
+\vspace*{1cm}
 
 \vfill
+
 
 % Table of Contents
 \tableofcontents
@@ -247,7 +265,7 @@ To develop a secure, high-speed, and reliable data transmission system by integr
 }
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{media/image3.png}
+    \includegraphics[width=0.9\textwidth]{BLOCK DIAGRAM PROJECT.png}
     \caption{Block Diagram of ThermoSecure Bluetooth-LAN Data System with Enhanced Speed and Error Reduction}
     \label{fig:block_diagram}
 \end{figure}
@@ -309,7 +327,7 @@ Overall, the ThermoSecure Bluetooth-LAN Data System stands out as a robust, prec
 \section{Block Diagram}
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{media/image3.png}
+    \includegraphics[width=0.9\textwidth]{BLOCK DIAGRAM PROJECT.png}
     \caption{Block Diagram of ThermoSecure Bluetooth-LAN Data System with Enhanced Speed and Error Reduction}
     \label{fig:block_diagram_methodology}
 \end{figure}
@@ -388,24 +406,6 @@ Among the available microcontrollers, the PIC32MX550F256L offers the best combin
 Among various wireless communication technologies, LoRa (Long Range) stands out due to its exceptional range, low power consumption, secure data transmission, and ability to function efficiently in harsh environments. It provides long-distance communication (up to 15+ km in rural areas) while maintaining low data rates, which is ideal for transmitting small, critical packets like pressure or calibration values. Its interference resistance, mesh networking support, and integration capability with Bluetooth modules (such as HC-05) make LoRa the most robust and reliable choice for long-range wireless communication in the ThermoSecure system.
 \end{flushleft}
 
-\documentclass[12pt]{report}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{enumitem}
-\usepackage{ragged2e}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage{amsmath}
-\usepackage{float}
-
-\geometry{a4paper, left=1.5in, right=1in, top=1in, bottom=1in}
-
-\begin{document}
-
-\section{Methodology/Working}
 \usepackage{ragged2e} % Add this line in your preamble if not already added
 
 % In the document body:
@@ -440,7 +440,7 @@ LoRa Module & Enables long-range wireless communication \\ \hline
 \subsection{Internal Working of PIC32MX550F256L}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{media/image8.png}
+    \includegraphics[width=0.6\textwidth]{MIC INTERNAL WORKING.png}
     \caption{Functional Diagram of PIC32MX550F256L microcontroller}
     \label{fig:pic_diagram}
 \end{figure}
@@ -462,43 +462,55 @@ Communication Interfaces & UART, SPI, I²C, USB \\ \hline
 \end{table}
 
 \subsection{Data Transmission}
-The data transmission process follows these steps:
+The data transmission process follows these steps to ensure accurate and reliable communication between the sensor system and receiving devices:
 
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Data Collection}
     \begin{itemize}[leftmargin=*]
-        \item Fixed air pressure applied to gauge setup
-        \item Known constant pressure serves as base input
-        \item Manual calibration with fixed setup values
+        \item Fixed air pressure is applied to the gauge setup to simulate standard operating conditions.
+        \item A known constant pressure acts as the baseline input for calibration.
+        \item Manual calibration is performed using fixed setup values to ensure measurement accuracy.
     \end{itemize}
     
     \item \textbf{Data Processing}
     \begin{itemize}[leftmargin=*]
-        \item PIC microcontroller processes pressure input
-        \item Computes volume using mathematical expressions
-        \item Converts to diameter using linear calibration
+        \item The PIC32MX550F256L microcontroller reads and processes the pressure input from the sensor.
+        \item The system calculates volume using mathematical expressions derived from sensor calibration data.
+        \item Volume measurements are converted into diameter values using a linear calibration curve specific to the gauge design.
+        \item Error correction algorithms are applied to compensate for environmental variations such as temperature.
     \end{itemize}
     
     \item \textbf{Data Transmission}
     \begin{itemize}[leftmargin=*]
-        \item Wired transmission via W5100 Ethernet controller
-        \item Wireless transmission via Neoton IC + LoRa/Bluetooth
+        \item Wired data transmission is handled via the W5100 Ethernet controller, supporting reliable TCP/IP communication over LAN.
+        \item Wireless transmission utilizes the Neoton IC with LoRa and Bluetooth modules for flexible connectivity.
+        \item LoRa enables long-range, low-power communication suitable for remote monitoring up to 2.8 km.
+        \item Bluetooth offers short-range, high-speed communication for local device interfacing up to 10 meters.
+        \item Data packets include checksum and error detection bits to ensure data integrity during transmission.
     \end{itemize}
 \end{enumerate}
+
+\usepackage{tabularx} % add this in your preamble if not already present
 
 \begin{table}[H]
 \centering
 \caption{Data Transmission Specifications}
 \label{tab:transmission_specs}
-\begin{tabular}{|l|l|l|}
+\renewcommand{\arraystretch}{1.3} % increase row height slightly
+
+\begin{tabularx}{\textwidth}{|l|X|X|}
 \hline
-\textbf{Parameter} & \textbf{Wired (LAN)} & \textbf{Wireless} \\ \hline
-Interface & Ethernet (W5100) & Bluetooth/LoRa \\ \hline
-Speed & 10/100 Mbps & 300 bps - 115.2 kbps \\ \hline
-Range & Up to 100m & 10m-2.8km \\ \hline
-Protocol & TCP/IP & Custom RF \\ \hline
-\end{tabular}
+\textbf{Parameter} & \textbf{Wired (LAN)} & \textbf{Wireless (Bluetooth/LoRa)} \\ \hline
+Interface & Ethernet (W5100 Controller) & Bluetooth 5.0 / LoRa Module \\ \hline
+Data Rate & 10 / 100 Mbps & 250 bps – 50 kbps (LoRa), up to 2 Mbps (Bluetooth 5.0) \\ \hline
+Range & Up to 100 meters & 10 meters (Bluetooth), up to 2.8 km (LoRa) \\ \hline
+Protocol & TCP/IP Stack & Custom RF Protocol with CRC error checking \\ \hline
+Power Consumption & Powered via LAN (PoE optional) & Supports low power modes for battery operation \\ \hline
+Latency & Low, suitable for real-time monitoring & Moderate latency; optimized for power and range \\ \hline
+Security & WPA2, TLS encryption & AES-128 (LoRa), Standard Bluetooth security features \\ \hline
+\end{tabularx}
 \end{table}
+
 
 \subsection{Algorithm}
 The system follows this algorithmic flow:
@@ -516,7 +528,7 @@ The system follows this algorithmic flow:
 \subsection{Flow Chart}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{media/image9.png}
+    \includegraphics[width=0.8\textwidth]{CHART FLOW .png}
     \caption{Flow Chart of ThermoSecure Bluetooth-LAN Data System}
     \label{fig:flow_chart}
 \end{figure}
@@ -526,23 +538,62 @@ The system follows this algorithmic flow:
 \subsection{Hardware Results}
 
 \begin{figure}[H]
+\centering
+
+% First row
+\begin{minipage}{0.32\textwidth}
     \centering
-    \begin{tabular}{ccc}
-    \includegraphics[width=0.3\textwidth]{media/image10.jpeg} &
-    \includegraphics[width=0.3\textwidth]{media/image11.jpeg} &
-    \includegraphics[width=0.3\textwidth]{media/image12.jpeg} \\
-    \includegraphics[width=0.3\textwidth]{media/image13.jpeg} &
-    \includegraphics[width=0.3\textwidth]{media/image14.jpeg} &
-    \includegraphics[width=0.3\textwidth]{media/image15.jpeg} \\
-    \end{tabular}
-    \caption{Hardware implementation results}
-    \label{fig:hardware_results}
+    \includegraphics[width=\textwidth]{PRESSURE.jpg}
+    
+    \small Pressure Sensor
+\end{minipage}
+\hfill
+\begin{minipage}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{MIC.jpg}
+    
+    \small Microphone
+\end{minipage}
+\hfill
+\begin{minipage}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{MACHINE.jpg}
+    
+    \small Machine Setup
+\end{minipage}
+
+\vspace{8pt}
+
+% Second row
+\begin{minipage}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{HELLLOLOL.jpg}
+    
+    \small Sensor Output
+\end{minipage}
+\hfill
+\begin{minipage}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{HELLOS.jpg}
+    
+    \small Control Board
+\end{minipage}
+\hfill
+\begin{minipage}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{CONNECTIONS.jpg}
+    
+    \small Wiring Connections
+\end{minipage}
+
+\caption{Hardware implementation results}
+\label{fig:hardware_results}
 \end{figure}
 
 \subsection{Software Results}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{media/image23.png}
+    \includegraphics[width=0.8\textwidth]{APPLICATION .jpg}
     \caption{Mobile application interface}
     \label{fig:mobile_app}
 \end{figure}
@@ -553,14 +604,42 @@ The system follows this algorithmic flow:
 \centering
 \caption{Data Transmission Validation}
 \label{tab:validation}
-\begin{tabular}{|l|l|l|l|}
+\renewcommand{\arraystretch}{1.2} % Slightly tighter row spacing
+\small % Reduce font size inside the table for fitting
+\begin{tabularx}{\linewidth}{|l|X|X|X|}
 \hline
 \textbf{Metric} & \textbf{LoRa} & \textbf{Bluetooth} & \textbf{LAN} \\ \hline
 Packet Success Rate & 99.2\% & 99.8\% & 100\% \\ \hline
-Range & 2.8 km & 15m & 100m \\ \hline
-Power Consumption & 120mA & 40mA & 50mA \\ \hline
-\end{tabular}
+Maximum Range & 2.8 km & 15 m & 100 m \\ \hline
+Average Power Consumption & 120 mA & 40 mA & 50 mA \\ \hline
+Data Rate & 250 bps – 50 kbps & Up to 2 Mbps & 10 / 100 Mbps \\ \hline
+Latency & 100–200 ms & 10–30 ms & <5 ms \\ \hline
+Frequency Band & 868 / 915 MHz (region dependent) & 2.4 GHz ISM band & Ethernet Cable \\ \hline
+Security Features & AES-128 encryption & Standard Bluetooth security & WPA2, TLS encryption \\ \hline
+Interference Resilience & High (spread spectrum) & Moderate & Low \\ \hline
+Application Suitability & Long range, low power IoT & Short range, high speed & Real-time, high bandwidth \\ \hline
+\end{tabularx}
 \end{table}
+
+\vspace{0.5cm}
+\noindent
+\textbf{Discussion:}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Packet Success Rate:} All communication modes maintain a high packet success rate, with LAN providing a near-perfect 100\%, ensuring data integrity.
+    
+    \item \textbf{Range:} LoRa excels in long-range communication, ideal for scenarios where devices are spread over wide areas, whereas Bluetooth suits short-range requirements. LAN provides stable wired connections up to 100 meters.
+    
+    \item \textbf{Power Consumption:} Bluetooth has the lowest power consumption making it suitable for battery-operated portable devices. LoRa consumes more power due to its longer range capabilities, and LAN power consumption depends on cable-powered devices.
+    
+    \item \textbf{Data Rate and Latency:} LAN supports the highest data rates and lowest latency, making it the preferred choice for real-time and high-throughput applications. Bluetooth offers moderate speed and latency, while LoRa trades speed for extended range and low power.
+    
+    \item \textbf{Frequency and Interference:} LoRa operates on sub-GHz frequencies with high interference resilience, making it robust in noisy RF environments. Bluetooth uses the crowded 2.4 GHz band, which may lead to interference issues in congested areas.
+    
+    
+  
+\end{itemize}
+
 
 \clearpage % Start a new page
 
