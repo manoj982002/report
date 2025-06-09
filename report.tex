@@ -1,5 +1,4 @@
 \documentclass[12pt]{report}
-
 \usepackage{times} % or \usepackage{mathptmx} for better math font support
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{graphicx}
@@ -71,14 +70,15 @@
 \newcommand{\department}{Department of Electronics \& Telecommunication Engineering}
 \newcommand{\location}{Vadgaon (BK), Pune - 411041}
 
-% Add black border on every page
+% Add visible black border on every page (thicker and well inside the page)
 \AddEverypageHook{%
   \begin{tikzpicture}[remember picture,overlay]
-    \draw[black, line width=1pt]
-      ($(current page.north west) + (1mm,-1mm)$) rectangle
-      ($(current page.south east) + (-1mm,1mm)$);
+    \draw[black, line width=2pt]
+      ($(current page.north west) + (0.1in,-0.1in)$) rectangle
+      ($(current page.south east) + (-0.1in,0.1in)$);
   \end{tikzpicture}%
 }
+
 
 \begin{document}
 
@@ -170,9 +170,9 @@ Have successfully completed their Project under the supervision of \textbf{Dr. S
     \centering \textbf{Dr. M. B. Mali} & 
     \centering \textbf{Dr. S. D. Lokhande} \\[0.4cm]
     
+    \multicolumn{1}{c}{\\Principal, SCOE} & 
     \multicolumn{1}{c}{Guide} & 
-    \multicolumn{1}{c}{HOD – Dept. of E\&TC} & 
-    \multicolumn{1}{c}{Principal, SCOE} \\
+    \multicolumn{1}{c}{HOD – Dept. of E\&TC} \\
 \end{tabular}
 \end{center}
 \vspace*{1cm}
